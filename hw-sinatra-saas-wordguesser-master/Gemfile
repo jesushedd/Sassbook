@@ -5,14 +5,15 @@ gem 'sinatra', '>= 2.0.2'
 #gem 'sinatra-flash', '0.3.0'
 gem "rack", "~> 2.2"
 
-#group :development, :test do
+group :development, :test do
 #  gem 'cucumber'
 #  gem 'cucumber-sinatra'
 #  gem 'capybara'
 
-  #gem 'rspec'
-  #gem 'rspec-autotest'
-#
+  gem 'rspec'
+  gem 'rspec-autotest'
+  gem 'autotest' 
+
  # gem 'rack-test'
   #gem 'rack_session_access'
 
@@ -22,8 +23,8 @@ gem "rack", "~> 2.2"
 
   #gem 'simplecov'
   #gem 'webmock'
-  #gem 'ZenTest'
-#end
+  gem 'ZenTest'
+end
 
 
 gem "puma", "~> 6.6"
