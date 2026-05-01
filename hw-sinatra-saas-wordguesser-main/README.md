@@ -1,5 +1,5 @@
-Wordguesser: a scaffolded (!) ESaaS getting-started assignment
-=============================================================
+# CHIP 3.7: Wordguesser: a scaffolded (!) ESaaS getting-started assignment
+
 
 (v1.1, September 2015.  Written by Armando Fox and Nick Herson)
 (some edits by mverdicchio 21 September 2015)
@@ -40,7 +40,7 @@ You'll then use the Sinatra framework to make the Wordguesser game available as 
 
 You'll deploy your game to the cloud using Heroku, giving you experience in automating SaaS deployment.
 
-**Why Sinatra?** 
+**Why Sinatra?**
 
 This assignment uses the simple [Sinatra](https://github.com/sinatra/sinatra) framework rather than Rails, so that you can focus on tools, mechanics, and SaaS concepts, all of which will readily map to Rails later.  Since our app doesn't have a database and has very few functions, Sinatra is an easy way to get started.
 
