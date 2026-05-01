@@ -33,9 +33,8 @@ class WordGuesserGame
 
 
   def handle_guess_correctness(a_letter)
-    if @guesses.include? a_letter or @wrong_guesses.include? a_letter
-      return
-    elsif @word.include? a_letter
+    
+    if @word.include? a_letter
       @guesses = @guesses + a_letter
     else
       @wrong_guesses = @wrong_guesses + a_letter
@@ -50,8 +49,17 @@ class WordGuesserGame
     if a_letter.length != 1
       return false
     end
+    if @guesses.include? a_letter or @wrong_guesses.include? a_letter
+      return false
+    end
 
-    /[a-zA-Z]/.match? a_letter
+
+
+    if  ! /[a-zA-Z]/.match? a_letter
+      return false
+    end
+
+    true
     
   end
 
