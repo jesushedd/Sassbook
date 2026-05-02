@@ -43,7 +43,7 @@ class WordGuesserGame
     
     if @word.include? a_letter
       @guesses = @guesses + a_letter
-      assemble_new_word_with_gesses(a_letter, word_to_guess, current_word_with_guesses)
+      assemble_new_word_with_gesses(a_letter, @word, @word_with_guesses)
     else
       @wrong_guesses = @wrong_guesses + a_letter
     end
