@@ -9,6 +9,7 @@ class WordGuesserGame
     @guesses = ''
     @wrong_guesses = ''
     @word_with_guesses = '-' * word.length
+    @state_game = :play
   end
 
   def word
@@ -44,9 +45,20 @@ class WordGuesserGame
     if @word.include? a_letter
       @guesses = @guesses + a_letter
       assemble_new_word_with_gesses(a_letter, @word, @word_with_guesses)
+      if ! @word_with_guesses.include? '-'
+        @state_game = :win
+      end
     else
       @wrong_guesses = @wrong_guesses + a_letter
+      if @wrong_guesses.length >= 7
+        @state_game = :lose
+      end
     end
+  end
+
+
+  def check_win_or_lose
+    @state_game
   end
 
 
