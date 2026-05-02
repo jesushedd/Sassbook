@@ -8,6 +8,7 @@ class WordGuesserGame
     @word = word
     @guesses = ''
     @wrong_guesses = ''
+    @word_with_guesses = '-' * word.length
   end
 
   def word
@@ -21,6 +22,12 @@ class WordGuesserGame
   def wrong_guesses
     @wrong_guesses
   end
+
+  def word_with_guesses
+    @word_with_guesses
+  end
+
+
 
   def guess(a_letter)
     if is_valid_guess(a_letter)
@@ -43,12 +50,13 @@ class WordGuesserGame
 
   def is_valid_guess(a_letter)
     if a_letter.class != String
-      return false
+      raise ArgumentError
     end
 
     if a_letter.length != 1
-      return false
+      raise ArgumentError
     end
+    a_letter = a_letter.downcase
     if @guesses.include? a_letter or @wrong_guesses.include? a_letter
       return false
     end
@@ -56,7 +64,7 @@ class WordGuesserGame
 
 
     if  ! /[a-zA-Z]/.match? a_letter
-      return false
+      raise ArgumentError
     end
 
     true
