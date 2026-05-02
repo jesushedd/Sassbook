@@ -43,9 +43,28 @@ class WordGuesserGame
     
     if @word.include? a_letter
       @guesses = @guesses + a_letter
+      assemble_new_word_with_gesses(a_letter, word_to_guess, current_word_with_guesses)
     else
       @wrong_guesses = @wrong_guesses + a_letter
     end
+  end
+
+
+  def assemble_new_word_with_gesses(letter_guessed, word, word_with_guesses)
+    new_word_with_guesses = ''
+    word_chars = word.chars
+    word_with_guesses_chars = word_with_guesses.chars
+
+    while word_chars.size > 0
+      word_char_to_compare = word_chars.shift
+      word_with_guesses_char_be_replaced = word_with_guesses_chars.shift
+      if letter_guessed == word_char_to_compare
+        new_word_with_guesses = new_word_with_guesses + letter_guessed
+      else
+        new_word_with_guesses = new_word_with_guesses + word_with_guesses_char_be_replaced
+      end
+    end
+    @word_with_guesses =  new_word_with_guesses
   end
 
   def is_valid_guess(a_letter)
